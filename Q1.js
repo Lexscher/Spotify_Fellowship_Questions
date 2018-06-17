@@ -24,7 +24,6 @@ let sortByString = function(s, t) {
   // turn our sorted array into a string.
   let sortedString = sortedArray.join("");
   // return our newly sorted freind.
-  console.log(sortedString);
   return sortedString;
 };
 
