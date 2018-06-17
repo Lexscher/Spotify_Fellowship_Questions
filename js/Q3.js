@@ -3,33 +3,6 @@
 // The second parameter is an array of integers that represent the available coin denominations.
 // The function should return all the compare ways the denominations can sum up to the amount given. ¢.¢ $.$
 
-// okay we may have to abandon this all together {
-// I'll just start with testing
-let test3 = (amount, denom) => {
-  let i = 0;
-  while (i <= denom.length) {
-    console.log("single coin value: " + denom[i]);
-    console.log(amount / denom[i]);
-    if (amount % denom[i] == 0) {
-      let coin = denom[i] + "¢";
-      console.log("If Statement #1: " + coin.repeat(amount / denom[i]));
-    } else if (amount / denom[i] == amount) {
-      // if the coin is one cent
-      let ok = denom[i] + "¢";
-      console.log("If Statement #2: " + ok.repeat(amount));
-      console.log("...");
-    }
-    i++;
-  } // <~ while loop
-  // maybe a while loop would be easier to work with, here
-  // for (let i = 0; i <= denom.length; i++) {
-  //   console.log(denom[i]);
-  //   // okay, we can add it by itself
-  // }
-};
-// } <~ because it's not working
-test3(4, [1, 2, 3]);
-
 // I'll try to break this down a bit.
 
 // GENERAL NOTE: We may have to do something with division, then check for remainders(modulus), add them all up -- if they equal four you  can return That.
@@ -52,3 +25,55 @@ test3(4, [1, 2, 3]);
 
 // I think I know how to do this... Sorry if it's all in shambles!
 // Enough! Let's get coding.
+
+let changePossibilities = (amount, denom) => {
+  // hold successful coin denomination combinations.
+  finalAns = [];
+  // compare two coin denominations.
+  let compare = [];
+  // single successful coin denomination.
+  let answer = null;
+  for (let i = 0; i < denom.length; i++) {
+    // This will make sure that we only push into compare when it has no items inside.
+    if (compare.length < 1) {
+      compare.push(denom[i]);
+    }
+    compare[0] = denom[i];
+    for (let j = i; j < denom.length; j++) {
+      // hold the amount of times you'll need to concatenate denom[i] in a variable (this is the incubator).
+      let x = 1;
+      // This will make sure that we only push into compare if it has only one item. This way we can keep changing compare[1] (second index).
+      if (compare.length < 2) {
+        compare.push(denom[j]);
+      }
+      compare[1] = denom[j];
+      // This is where we have to logic out these possible denominations.
+      // the sum of the possible denomination combination.
+      let sum = denom[i] + denom[j];
+      while (sum < amount) {
+        console.log("SUM: " + sum);
+        sum += denom[i];
+        console.log(x);
+        x++;
+      } // <~ End of while loop
+      if (sum == amount) {
+        console.log("sum: " + sum);
+        console.log("Amount: " + amount);
+        // Break these into segments that we can use to get the full denomination combination.
+        part1 = denom[i] + "¢ ";
+        part2 = denom[j] + "¢ ";
+        let answer = part1.repeat(x) + part2;
+        console.log(answer);
+        finalAns.push(answer);
+      } // <~ End of if statement
+      console.log(compare);
+    } // <~ End of nested for loop (starts on line 41)
+    console.log(compare);
+  } // <~ End of first for loop (starts on line 35)
+  console.log(answer);
+  console.log(compare);
+  console.log(finalAns);
+  return finalAns;
+};
+
+changePossibilities(4, [1, 2, 3]);
