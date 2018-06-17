@@ -12,7 +12,7 @@ You may navigate to the questions from here:
 
 Okay, I made a little page about one of my playlists. You can see it [_here_](https://lexscher.github.io/Spotify_Fellowship_Questions/). I had a lot of fun with this.
 If you aren't a fan of links, here's a screenshot:
-![Spotify application web app](./images/Spotify-me.png)
+![Spotify application web app](./images/Spotify.png)
 
 ---
 
