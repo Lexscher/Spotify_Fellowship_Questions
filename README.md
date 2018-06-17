@@ -2,7 +2,7 @@
 
 I made this repository for my Spotify Fellowship application. I'll answer each technical question in it's own file. I'll be using JavaScript to solve these questions.
 
-So you may navigate to the questions easily from here:
+You may navigate to the questions from here:
 
 | Question | Link                                                                                                  |
 | -------- | ----------------------------------------------------------------------------------------------------- |
